@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Appliance Center</title>
+
+
+<!-- Bootstrap core CSS -->
+<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<div th:include="administrador/template_admin.html::header"></div>
+
+	<!-- Page Content -->
+	<div class="container">
+
+<br>
+		<!-- Page Heading/Breadcrumbs -->
+		<h1 class="mt-4 mb-3">
+			Appliance Center<small>Ordenes</small>
+		</h1>
+
+		<ol class="breadcrumb" style="background-color: #f3f2ee;">
+			<li class="breadcrumb-item"><a th:href="@{ad/}" style="color: #000000;">Home</a></li>
+			<li class="breadcrumb-item active">Ordenes</li>
+		</ol>
+		<br>
+		<br>
+
+		<!-- Blog Post -->
+			<div class="card-body">
+				<div class="row">
+					<div class="col-lg-12">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">NO. DE ORDEN</th>
+									<th scope="col">FECHA</th>
+									<th scope="col">VALOR</th>
+									<th scope="col">ACCIÓN</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="orden:${ordenes}">
+									<td th:text="${orden.numero}"></td>
+									<td th:text="${orden.fechaCreacion}"></td>
+									<td th:text="${orden.total}"></td>
+									<td><a th:href="@{/administrador/detalle/{id} (id=${orden.id}) }" class="btn btn-success">Ver
+											Detalle</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		<br>
+		<br>
+		<a href="gestionMedico?menu=Medico&accion=Listar" onclick="window.print()" 
+           class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-download fa-sm text-white-50"></i> Generar Reporte
+		</a>
+	</div>
+	<br><br><br>
+	<!-- /.container -->
+
+	<!-- Footer -->
+	<div th:include="administrador/template_admin.html::footer"></div>
+
+	<!-- Bootstrap core JavaScript -->
+	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>

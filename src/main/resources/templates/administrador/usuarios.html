@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Appliance Center</title>
+
+
+  <!-- Bootstrap core CSS -->
+<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <div th:include="administrador/template_admin.html::header"></div>
+
+<!-- Page Content -->
+<div class="container">
+
+	<BR>
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3">
+    Appliance Center <small>Usuarios</small>
+  </h1>
+
+  <ol class="breadcrumb" style="background-color: #f3f2ee;">
+    <li class="breadcrumb-item"><a th:href="@{/}" style="color: #000000;">Home</a></li>
+    <li class="breadcrumb-item active">Ver Usuarios</li>
+  </ol>
+  <br>
+  <a onclick="window.print()" 
+         class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="color: rgb(255, 255, 255);">
+          <i class="fas fa-download fa-sm text-white-50" ></i> Generar Reporte
+      </a>
+  <BR>
+	<br>
+	<BR>
+  <h2><strong>Usuarios</strong> </h2>
+  
+  <BR>
+	
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">DIRECCIÓN</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="usuario:${usuarios}">
+        <td th:text="${usuario.nombre}"></td>
+        <td th:text="${usuario.email}"></td>
+        <td th:text="${usuario.direccion}"></td>
+      </tr>       
+    </tbody>
+  </table>
+  <BR>
+	<BR>
+		<BR>
+			<BR>
+				<BR>
+	
+</div>
+<br><br><br>
+<!-- /.container -->
+
+<!-- Footer -->
+<div th:include="administrador/template_admin.html::footer"></div>
+
+	<!-- Bootstrap core JavaScript -->
+	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>
